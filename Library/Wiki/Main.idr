@@ -40,6 +40,9 @@ main = do
                   Stage1.VexelMaxel.auditChromogeometricMetricSupportsProof
   printTestResult "Wildberger Matrix Path Composition Invariant (Green^2 = Blue)"
                   Stage1.VexelMaxel.auditMatrixPathCompositionProof
+  printTestResult "Deforested Stream DEC Coboundary Equivalence"
+                  Stage1.Topology.Boundaries.auditStreamCoboundaryEquivalenceProof
+
 
   putStrLn "--------------------------------------------------------"
   putStrLn "  ⚡ IDRIS2-QUICKCHECK GENERATIVE PROPERTY SUITES ⚡  "
