@@ -1,0 +1,18 @@
+package FinSc-Metric-Substrate-Wiki
+version = 0.4.0
+authors = "Justin Kelly"
+brief   = "Verification executable for Layer 0b Metric Spacetime Substrate"
+opts    = "--codegen chez"
+
+depends = FinSc-Multiset, FinSc-Metric-Substrate, FinSc-Phase-Unfolding, base, idris2-QuickCheck, linear
+sourcedir = "Library"
+
+modules = Wiki.Generators,
+          Wiki.Main,
+          Wiki.BoxelStagingSpec,
+          Wiki.VexelStagingSpec,
+          Wiki.MaxelStagingSpec,
+          Wiki.SpreadStreamStagingSpec
+
+main = Wiki.Main
+executable = metric-substrate-wiki
