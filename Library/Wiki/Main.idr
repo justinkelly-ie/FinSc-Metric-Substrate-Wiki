@@ -42,6 +42,8 @@ main = do
                   Stage1.VexelMaxel.auditMatrixPathCompositionProof
   printTestResult "Deforested Stream DEC Coboundary Equivalence"
                   Stage1.Topology.Boundaries.auditStreamCoboundaryEquivalenceProof
+  printTestResult "Parameterized Chromogeometric Metric Operator Identity (g_R^2 + g_G^2 = Q_B * g_B)"
+                  (Stage1.VexelMaxel.auditParameterizedMetricOperatorIdentity (intToBoxInt 4) (intToBoxInt 3))
 
 
   putStrLn "--------------------------------------------------------"
