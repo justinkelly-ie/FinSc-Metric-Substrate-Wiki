@@ -1,6 +1,7 @@
 module Wiki.Main
 
 import MetricSubstrate
+import Stage1.VexelMaxel
 import Reflect.SubstrateAuditor
 import Wiki.BoxelStagingSpec
 import Wiki.VexelStagingSpec
@@ -35,6 +36,10 @@ main = do
                   (Reflect.SubstrateAuditor.holographicAreaBoundProof 3)
   printTestResult "Discrete Helmholtz Free Energy Ground State (F = -1320)"
                   Reflect.SubstrateAuditor.auditHelmholtzGroundStateProof
+  printTestResult "Chromogeometric Metric Support Fingerprints (Blue/Red vs Green)"
+                  Stage1.VexelMaxel.auditChromogeometricMetricSupportsProof
+  printTestResult "Wildberger Matrix Path Composition Invariant (Green^2 = Blue)"
+                  Stage1.VexelMaxel.auditMatrixPathCompositionProof
 
   putStrLn "--------------------------------------------------------"
   putStrLn "  ⚡ IDRIS2-QUICKCHECK GENERATIVE PROPERTY SUITES ⚡  "
