@@ -2,6 +2,7 @@ module Wiki.Main
 
 import MetricSubstrate
 import Stage1.VexelMaxel
+import Stage1.Goh.Factor
 import Reflect.SubstrateAuditor
 import Wiki.BoxelStagingSpec
 import Wiki.VexelStagingSpec
@@ -44,6 +45,8 @@ main = do
                   Stage1.Topology.Boundaries.auditStreamCoboundaryEquivalenceProof
   printTestResult "Parameterized Chromogeometric Metric Operator Identity (g_R^2 + g_G^2 = Q_B * g_B)"
                   (Stage1.VexelMaxel.auditParameterizedMetricOperatorIdentity (intToBoxInt 4) (intToBoxInt 3))
+  printTestResult "Goh Factor 1D Polynomial & 2D Companion Support Sizes (p=2->1, p=3->3, p=5->7)"
+                  Reflect.SubstrateAuditor.auditGohFactorCompanionSupportProof
 
 
   putStrLn "--------------------------------------------------------"
