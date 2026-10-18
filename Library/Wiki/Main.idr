@@ -68,6 +68,9 @@ main = do
                   (coupling35ParabolicSubstrate.couplingName == "Parabolic-Substrate Ground Coupling" &&
                    coupling55ParabolicDarkMatter.couplingName == "Parabolic Dark Matter Capacity (T_10)" &&
                    coupling39ObserverEpoch.couplingName == "Observer Epoch Dual-Branch Emergence")
+  printTestResult "10D Spacetime Metric Tensor T_10 = 55 Degrees of Freedom & Exact Bijections"
+                  (Stage1.Spacetime10D.auditSymmetricPairsCount55 &&
+                   Stage1.Spacetime10D.auditMetricIndexRoundTrip55)
 
 
 
