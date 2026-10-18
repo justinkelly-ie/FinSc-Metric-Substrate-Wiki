@@ -60,6 +60,13 @@ main = do
   printTestResult "Wildberger Relativistic Triple Spread Law & Dihedron Transfer Stream"
                   (Stage0.Spread.auditRelativisticTripleSpreadLawProof &&
                    Stage1.DihedronModel.auditSpreadRecurrenceOrbitProof)
+  printTestResult "Sparse BoxSquareMaxel Kronecker Tensor Product (I_2 ⊗ I_2 = I_4)"
+                  (kroneckerBoxSquareMaxel (identityBoxSquareMaxel 2) (identityBoxSquareMaxel 2) == identityBoxSquareMaxel 4)
+  printTestResult "Constructive Composite Goh Couplings (35=5*7, 55=5*11=T_10, 39=3*13=S 38)"
+                  (coupling35ParabolicSubstrate.couplingName == "Parabolic-Substrate Ground Coupling" &&
+                   coupling55ParabolicDarkMatter.couplingName == "Parabolic Dark Matter Capacity (T_10)" &&
+                   coupling39ObserverEpoch.couplingName == "Observer Epoch Dual-Branch Emergence")
+
 
 
   putStrLn "--------------------------------------------------------"
