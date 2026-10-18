@@ -47,6 +47,16 @@ main = do
                   (Stage1.VexelMaxel.auditParameterizedMetricOperatorIdentity (intToBoxInt 4) (intToBoxInt 3))
   printTestResult "Goh Factor 1D Polynomial & 2D Companion Support Sizes (p=2->1, p=3->3, p=5->7)"
                   Reflect.SubstrateAuditor.auditGohFactorCompanionSupportProof
+  printTestResult "3D Euclidean Projective Rotation Invariants (Phi(v) v = v & Q-Invariance)"
+                  (let prop = Stage1.ProjectiveRotation.MkProjectiveProportion (intToBoxInt 2) (intToBoxInt 1) (intToBoxInt 2) (intToBoxInt 2)
+                       testW = [intToBoxInt 3, intToBoxInt 4, intToBoxInt 5]
+                   in Stage1.ProjectiveRotation.auditAxisIsFixedEigenvector prop &&
+                      Stage1.ProjectiveRotation.auditQuadranceScalingInvariant prop testW)
+  printTestResult "2x2 Minkowski Dihedron Determinant & Adjugate Invariants (det(AB) = det(A)det(B))"
+                  (let d1 = Stage1.DihedronModel.fromProportionMink (intToBoxInt 3) (intToBoxInt 2) (intToBoxInt 1) (intToBoxInt 1)
+                       d2 = Stage1.DihedronModel.fromProportionMink (intToBoxInt 2) (intToBoxInt 1) (intToBoxInt 2) (intToBoxInt 0)
+                   in Stage1.DihedronModel.auditDihedronDeterminantMultiplicative d1 d2 &&
+                      Stage1.DihedronModel.auditDihedronAdjugateIdentity d1)
 
 
   putStrLn "--------------------------------------------------------"
