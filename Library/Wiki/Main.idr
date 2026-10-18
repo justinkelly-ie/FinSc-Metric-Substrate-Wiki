@@ -57,6 +57,9 @@ main = do
                        d2 = Stage1.DihedronModel.fromProportionMink (intToBoxInt 2) (intToBoxInt 1) (intToBoxInt 2) (intToBoxInt 0)
                    in Stage1.DihedronModel.auditDihedronDeterminantMultiplicative d1 d2 &&
                       Stage1.DihedronModel.auditDihedronAdjugateIdentity d1)
+  printTestResult "Wildberger Relativistic Triple Spread Law & Dihedron Transfer Stream"
+                  (Stage0.Spread.auditRelativisticTripleSpreadLawProof &&
+                   Stage1.DihedronModel.auditSpreadRecurrenceOrbitProof)
 
 
   putStrLn "--------------------------------------------------------"
