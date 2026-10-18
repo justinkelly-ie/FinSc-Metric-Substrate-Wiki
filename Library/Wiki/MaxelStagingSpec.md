@@ -64,6 +64,18 @@ prop_maxelGrassmannWedgeNilpotency : Bool
 prop_maxelGrassmannWedgeNilpotency =
   auditWedgeNilpotencyProof
 
+||| Property 5: Direct Sparse-Dense Hybrid Contraction Equivalence with MaxelN
+public export
+prop_sparseDenseContractionEquivalence : Bool
+prop_sparseDenseContractionEquivalence =
+  let mDense = mkMaxel2 (intToBoxInt 1) (intToBoxInt 2) (intToBoxInt 3) (intToBoxInt 4)
+      mSparse = maxelNToSquareMaxel mDense
+      v = mkVexel2 (intToBoxInt 5) (intToBoxInt 6)
+      vDenseExpected = mkVexel2 (intToBoxInt 17) (intToBoxInt 39)
+      vSparseActual = contractSparseDenseVexel mSparse v
+      mDenseRoundTrip = squareMaxelToMaxelN 2 mSparse
+  in (vSparseActual == vDenseExpected) && (mDenseRoundTrip == mDense)
+
 ||| Main Verification Suite for 2D Maxel 2LTT Staging
 public export
 auditMaxelStagingProof : IO Bool
@@ -72,5 +84,6 @@ auditMaxelStagingProof = do
   let p2 = prop_maxelProductCancellation
   let p3 = prop_maxelOuterProductAndRowExtraction
   let p4 = prop_maxelGrassmannWedgeNilpotency
-  pure (p1 && p2 && p3 && p4)
+  let p5 = prop_sparseDenseContractionEquivalence
+  pure (p1 && p2 && p3 && p4 && p5)
 ```
