@@ -22,7 +22,8 @@ Documents and verifies the formal application of **Two-Level Type Theory (2LTT) 
 module Wiki.MaxelStagingSpec
 
 import Stage1.TypeTheory.TwoLevel
-import Stage1.VexelMaxel
+import Stage1.Basis.Coordinate
+import Stage1.Carrier.Maxel
 import Stage0.BoxInt
 
 %default total
