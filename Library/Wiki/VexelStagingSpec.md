@@ -41,8 +41,8 @@ prop_vexelStage1ToStage0Staging =
 public export
 prop_vexelDotProduct : Bool
 prop_vexelDotProduct =
-  let v1 = MkVexel [(MkUnixel 1, intToBoxInt 2), (MkUnixel 2, intToBoxInt 3)]
-      v2 = MkVexel [(MkUnixel 1, intToBoxInt 4), (MkUnixel 2, intToBoxInt 5)]
+  let v1 = MkVexel [(mkUnixel 1, intToBoxInt 2), (mkUnixel 2, intToBoxInt 3)]
+      v2 = MkVexel [(mkUnixel 1, intToBoxInt 4), (mkUnixel 2, intToBoxInt 5)]
       dp = dotVexel v1 v2
   in dp == intToBoxInt (2 * 4 + 3 * 5) -- 8 + 15 = 23
 
@@ -50,18 +50,18 @@ prop_vexelDotProduct =
 public export
 prop_vexelCanonicalization : Bool
 prop_vexelCanonicalization =
-  let rawVexel = MkVexel [(MkUnixel 1, intToBoxInt 5), (MkUnixel 1, intToBoxInt (-5)), (MkUnixel 2, intToBoxInt 7)]
+  let rawVexel = MkVexel [(mkUnixel 1, intToBoxInt 5), (mkUnixel 1, intToBoxInt (-5)), (mkUnixel 2, intToBoxInt 7)]
       canon = canonicalizeVexel rawVexel
-  in canon == MkVexel [(MkUnixel 2, intToBoxInt 7)]
+  in canon == MkVexel [(mkUnixel 2, intToBoxInt 7)]
 
 ||| Property 4: Subatomic Hadron Quark Color Charge Allocation (Red=[1], Green=[2], Blue=[3])
 public export
 prop_quarkColorChargeAllocation : Bool
 prop_quarkColorChargeAllocation =
   let qv = nucleonQuarkVexel
-      r = lookupUnixel (MkUnixel 1) qv
-      g = lookupUnixel (MkUnixel 2) qv
-      b = lookupUnixel (MkUnixel 3) qv
+      r = lookupUnixel (mkUnixel 1) qv
+      g = lookupUnixel (mkUnixel 2) qv
+      b = lookupUnixel (mkUnixel 3) qv
   in (r == intToBoxInt 1) && (g == intToBoxInt 1) && (b == intToBoxInt 1)
 
 ||| Main Verification Suite for 1D Vexel 2LTT Staging

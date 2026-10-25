@@ -41,23 +41,23 @@ prop_maxelStage1ToStage0Staging =
 public export
 prop_maxelProductCancellation : Bool
 prop_maxelProductCancellation =
-  let m1 = MkMaxel [(MkPixel 1 2, intToBoxInt 3)]
-      m2 = MkMaxel [(MkPixel 3 4, intToBoxInt 5)]
-      m3 = MkMaxel [(MkPixel 2 3, intToBoxInt 5)]
+  let m1 = MkMaxel [(mkPixel 1 2, intToBoxInt 3)]
+      m2 = MkMaxel [(mkPixel 3 4, intToBoxInt 5)]
+      m3 = MkMaxel [(mkPixel 2 3, intToBoxInt 5)]
       unalignedProd = mulMaxel m1 m2
       alignedProd   = mulMaxel m1 m3
   in (unalignedProd == MkMaxel []) &&
-     (alignedProd == MkMaxel [(MkPixel 1 3, intToBoxInt 15)])
+     (alignedProd == MkMaxel [(mkPixel 1 3, intToBoxInt 15)])
 
 ||| Property 3: 2D Maxel Outer Product (Ket x Bra) & Row Vector Extraction
 public export
 prop_maxelOuterProductAndRowExtraction : Bool
 prop_maxelOuterProductAndRowExtraction =
-  let v1 = MkVexel [(MkUnixel 1, intToBoxInt 2), (MkUnixel 2, intToBoxInt 3)]
-      v2 = MkVexel [(MkUnixel 1, intToBoxInt 1), (MkUnixel 2, intToBoxInt 4)]
+  let v1 = MkVexel [(mkUnixel 1, intToBoxInt 2), (mkUnixel 2, intToBoxInt 3)]
+      v2 = MkVexel [(mkUnixel 1, intToBoxInt 1), (mkUnixel 2, intToBoxInt 4)]
       m = outerProductVexel v1 v2
       row1 = extractRowVexel 1 m
-  in row1 == MkVexel [(MkUnixel 1, intToBoxInt 2), (MkUnixel 2, intToBoxInt 8)]
+  in row1 == MkVexel [(mkUnixel 1, intToBoxInt 2), (mkUnixel 2, intToBoxInt 8)]
 
 ||| Property 4: Grassmann Exterior Wedge Product Nilpotency (v ^ v == 0)
 public export
