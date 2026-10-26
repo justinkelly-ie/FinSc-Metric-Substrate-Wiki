@@ -23,7 +23,6 @@ module Wiki.MaxelStagingSpec
 
 import Stage1.TypeTheory.TwoLevel
 import Stage1.Basis.Coordinate
-import Stage1.Carrier.Maxel
 import Stage0.BoxInt
 
 %default total

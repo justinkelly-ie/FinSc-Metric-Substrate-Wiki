@@ -23,7 +23,6 @@ module Wiki.VexelStagingSpec
 
 import Stage1.TypeTheory.TwoLevel
 import Stage1.Basis.Coordinate
-import Stage1.Carrier.Vexel
 import Stage0.BoxInt
 
 %default total

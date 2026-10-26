@@ -2,9 +2,6 @@ module Wiki.Main
 
 import MetricSubstrate
 import Stage1.Basis.Coordinate
-import Stage1.Carrier.Vexel
-import Stage1.Carrier.Maxel
-import Stage1.Carrier.Boxel
 import Stage1.Carrier.BalanceArray
 import Stage1.Goh.Factor
 import Reflect.SubstrateAuditor
