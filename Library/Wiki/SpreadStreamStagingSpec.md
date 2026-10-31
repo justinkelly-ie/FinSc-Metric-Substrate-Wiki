@@ -61,7 +61,10 @@ prop_chromogeometricBudgetClassification =
       f2 = makeGohFactor 2 -- deg 2 -> Hyperbolic
       f3 = makeGohFactor 5 -- deg 5 -> Parabolic
       bags = [AddFactor f1 EmptyBag, AddFactor f2 EmptyBag, AddFactor f3 EmptyBag]
-      (b, r, g) = chromogeometricBudgetExhaustion bags
+      budget = computeChromogeometricBudget bags
+      b = budget.blueElliptic
+      r = budget.redHyperbolic
+      g = budget.greenParabolic
   in (b == 2) && (r == 1) && (g == 4) -- phi(3)=2, phi(2)=1, phi(5)=4
 
 ||| Main Verification Suite for SpreadStream 2LTT Staging
