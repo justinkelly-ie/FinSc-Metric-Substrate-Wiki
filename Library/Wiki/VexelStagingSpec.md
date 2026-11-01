@@ -40,8 +40,8 @@ prop_vexelStage1ToStage0Staging =
 public export
 prop_vexelDotProduct : Bool
 prop_vexelDotProduct =
-  let v1 = MkVexel [(mkUnixel 1, intToBoxInt 2), (mkUnixel 2, intToBoxInt 3)]
-      v2 = MkVexel [(mkUnixel 1, intToBoxInt 4), (mkUnixel 2, intToBoxInt 5)]
+  let v1 = singletonCell (mkUnixel 1) (intToBoxInt 2) <+> singletonCell (mkUnixel 2) (intToBoxInt 3)
+      v2 = singletonCell (mkUnixel 1) (intToBoxInt 4) <+> singletonCell (mkUnixel 2) (intToBoxInt 5)
       dp = dotVexel v1 v2
   in dp == intToBoxInt (2 * 4 + 3 * 5) -- 8 + 15 = 23
 
@@ -49,9 +49,9 @@ prop_vexelDotProduct =
 public export
 prop_vexelCanonicalization : Bool
 prop_vexelCanonicalization =
-  let rawVexel = MkVexel [(mkUnixel 1, intToBoxInt 5), (mkUnixel 1, intToBoxInt (-5)), (mkUnixel 2, intToBoxInt 7)]
+  let rawVexel = singletonCell (mkUnixel 1) (intToBoxInt 5) <+> singletonCell (mkUnixel 1) (intToBoxInt (-5)) <+> singletonCell (mkUnixel 2) (intToBoxInt 7)
       canon = canonicalizeVexel rawVexel
-  in canon == MkVexel [(mkUnixel 2, intToBoxInt 7)]
+  in canon == singletonCell (mkUnixel 2) (intToBoxInt 7)
 
 ||| Property 4: Subatomic Hadron Quark Color Charge Allocation (Red=[1], Green=[2], Blue=[3])
 public export

@@ -23,6 +23,7 @@ module Wiki.SpreadStreamStagingSpec
 
 import Stage1.TypeTheory.TwoLevel
 import Stage1.Goh
+import Stage1.Goh.SpreadFactorization
 import Stage1.Math.OnSeq.SpreadStream
 
 import Stage0.OnSeq.FusedStream
@@ -34,7 +35,7 @@ import Stage0.BoxInt
 public export
 prop_spreadStreamStage1ToStage0Staging : Bool
 prop_spreadStreamStage1ToStage0Staging =
-  let factor = makeGohFactor 6
+  let (_ ** factor) = ciglerHerbigAuxiliary 7 -- deg 6 = phi(7)
       bag = AddFactor factor EmptyBag
       strictBag = MkStrict bag
       homotopyBag = MkHomotopy (unwrapStrict strictBag)
@@ -57,15 +58,15 @@ prop_gaussTotientSumIdentity =
 public export
 prop_chromogeometricBudgetClassification : Bool
 prop_chromogeometricBudgetClassification =
-  let f1 = makeGohFactor 3 -- deg 3 -> Elliptic
-      f2 = makeGohFactor 2 -- deg 2 -> Hyperbolic
-      f3 = makeGohFactor 5 -- deg 5 -> Parabolic
+  let (_ ** f1) = ciglerHerbigAuxiliary 7 -- deg 6 = phi(7) -> 6 mod 3 == 0 -> Elliptic
+      (_ ** f2) = ciglerHerbigAuxiliary 3 -- deg 2 = phi(3) -> 2 is even -> Hyperbolic
+      (_ ** f3) = ciglerHerbigAuxiliary 2 -- deg 1 = phi(2) -> 1 is odd -> Parabolic
       bags = [AddFactor f1 EmptyBag, AddFactor f2 EmptyBag, AddFactor f3 EmptyBag]
       budget = computeChromogeometricBudget bags
       b = budget.blueElliptic
       r = budget.redHyperbolic
       g = budget.greenParabolic
-  in (b == 2) && (r == 1) && (g == 4) -- phi(3)=2, phi(2)=1, phi(5)=4
+  in (b == 6) && (r == 2) && (g == 1) -- deg(Psi7)=6, deg(Psi3)=2, deg(Psi2)=1
 
 ||| Main Verification Suite for SpreadStream 2LTT Staging
 public export

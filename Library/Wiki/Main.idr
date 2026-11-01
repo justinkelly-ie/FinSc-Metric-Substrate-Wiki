@@ -61,9 +61,9 @@ main = do
   printTestResult "Wildberger Relativistic Triple Spread Law & Dihedron Transfer Stream"
                   (Stage0.Spread.auditRelativisticTripleSpreadLawProof &&
                    Stage1.DihedronModel.auditSpreadRecurrenceOrbitProof)
-  printTestResult "Sparse BoxSquareMaxel Kronecker Tensor Product (I_2 ⊗ I_2 = I_4)"
-                  (kroneckerBoxSquareMaxel (identityBoxSquareMaxel 2) (identityBoxSquareMaxel 2) == identityBoxSquareMaxel 4)
-  printTestResult "Kronecker Algebraic Observation Equivalence (kroneckerBoxSquareMaxel == kroneckerBoxSquareMaxelAlg)"
+  printTestResult "Sparse SquareMaxel Kronecker Tensor Product (I_2 ⊗ I_2 = I_4)"
+                  (kroneckerSquareMaxel (identitySquareMaxel 2) (identitySquareMaxel 2) == identitySquareMaxel 4)
+  printTestResult "Kronecker Algebraic Observation Equivalence (kroneckerSquareMaxel == kroneckerSquareMaxelAlg)"
                   auditKroneckerAlgebraicEquivalence
   printTestResult "Constructive Composite Goh Couplings (35=5*7, 55=5*11=T_10, 39=3*13=S 38)"
                   (coupling35ParabolicSubstrate.couplingName == "Parabolic-Substrate Ground Coupling" &&
