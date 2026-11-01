@@ -62,7 +62,7 @@ prop_chromogeometricBudgetClassification =
       (_ ** f2) = ciglerHerbigAuxiliary 3 -- deg 2 = phi(3) -> 2 is even -> Hyperbolic
       (_ ** f3) = ciglerHerbigAuxiliary 2 -- deg 1 = phi(2) -> 1 is odd -> Parabolic
       bags = [AddFactor f1 EmptyBag, AddFactor f2 EmptyBag, AddFactor f3 EmptyBag]
-      budget = computeChromogeometricBudget bags
+      budget = computeQuadSectorBudget bags
       b = budget.blueElliptic
       r = budget.redHyperbolic
       g = budget.greenParabolic
