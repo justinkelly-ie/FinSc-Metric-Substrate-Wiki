@@ -22,7 +22,7 @@ printTestResult name pass =
 main : IO ()
 main = do
   putStrLn "========================================================"
-  putStrLn "  🌌 FINSC-METRIC-SUBSTRATE: LAYER 0B VERIFICATION 🌌  "
+  putStrLn "  🌌 FINSC-METRIC-SUBSTRATE: LAYER 1 VERIFICATION 🌌  "
   putStrLn "========================================================"
 
   printTestResult "Substrate Compile-Time %macro Reflections"
@@ -58,6 +58,9 @@ main = do
                        d2 = Stage1.DihedronModel.fromProportionMink (intToBoxInt 2) (intToBoxInt 1) (intToBoxInt 2) (intToBoxInt 0)
                    in Stage1.DihedronModel.auditDihedronDeterminantMultiplicative d1 d2 &&
                       Stage1.DihedronModel.auditDihedronAdjugateIdentity d1)
+  printTestResult "Dihedron2 Stencil Native Maxel Isomorphism & Relativistic Velocity Addition"
+                  (Stage1.DihedronModel.auditDihedron2MaxelRoundTripProof &&
+                   Stage1.DihedronModel.auditVelocityAdditionZeroIdentityProof)
   printTestResult "Wildberger Relativistic Triple Spread Law & Dihedron Transfer Stream"
                   (Stage0.Spread.auditRelativisticTripleSpreadLawProof &&
                    Stage1.DihedronModel.auditSpreadRecurrenceOrbitProof)
